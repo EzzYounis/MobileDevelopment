@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Movie {
+public class Movie implements Parcelable{
     private String name ;
     private String director;
     private  int year;
@@ -63,6 +63,12 @@ public class Movie {
     public int discribeContents(){
         return 0;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.name);
         dest.writeString(this.director);
@@ -100,5 +106,6 @@ public class Movie {
             return new Movie[size];
         }
     };
+
 }
 
